@@ -308,9 +308,11 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.0.3 =
+>[Only load bootstrap.css and bootstrap.js in the wordpress tooltips directory settings panel](https://tooltips.org/enhanced-directory-settings-panel-with-bootstrap-wordpress-tooltips-pro-plus-plugin-32-5-8-and-wordpress-tooltips-free-10-0-3-released/)
+
 = Version 9.9.9 =
->[In the WordPress Tooltip directory control panel, we added a tab panel to display different types of directories in separate tabs](https://tooltips.org/new-tab-panel-for-displaying-directory-types-in-wordpress-tooltip-control-panel-wordpress-tooltips-free-9-9-9/)
-We also rewrite description of directory :)
+>[New Tab Panel for Displaying Directory Types in WordPress Tooltip Control Panel](https://tooltips.org/new-tab-panel-for-displaying-directory-types-in-wordpress-tooltip-control-panel-wordpress-tooltips-free-9-9-9/)
 
 = Version 9.9.3 =
 1 to support usde gutenberg to make tooltips term in free version

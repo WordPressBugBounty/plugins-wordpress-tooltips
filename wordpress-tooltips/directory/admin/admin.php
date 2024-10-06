@@ -568,10 +568,11 @@ function tooltips_is_directory_setting_panel_free()
     $var_tooltips_is_directory_setting_panel = false;
 
     $current_url = $_SERVER['REQUEST_URI'];
-    $target_url = admin_url('edit.php?post_type=tooltips&page=tooltipdirectorysetting_pro');
+    //!!! before 32.5.8 and 9.9.9 $target_url = admin_url('edit.php?post_type=tooltips&page=tooltipdirectorysetting_pro');
+    //32.5.8 and 10.0.3
+    $target_url = 'edit.php?post_type=tooltips&page=tooltipdirectorysetting';
 
-
-    if (stripos($target_url, $current_url) !== false)
+    if (stripos($current_url , $target_url) !== false)
     {
         $var_tooltips_is_directory_setting_panel = true;
     }
