@@ -3,7 +3,7 @@
 Plugin Name: Tooltips
 Plugin URI:  https://tooltips.org/features-of-wordpress-tooltips-plugin/
 Description: Wordpress Tooltips,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of WordPress Tooltips Pro</a>.
-Version: 10.0.3
+Version: 10.0.9
 Author: Tomas | <a href='https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/' target='_blank'>Docs</a> | <a href='https://tooltips.org/faq/' target='_blank'>FAQ</a> | <a href='https://tooltips.org/contact-us' target='_blank'>Premium Support</a> 
 Author URI: https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltips-demo/
 Text Domain: wordpress-tooltips
@@ -61,6 +61,9 @@ if ($jobboardDirectorySelect == 'disablejobboardDirectorySelectOption') {} else 
 
 function add_tooltips_post_type() {
 	global $wp_rewrite;
+
+	/*
+	//before 10.0.9
 	$catlabels = array(
 			'name'                          => 'Categories',
 			'singular_name'                 => 'Tooltips Categories',
@@ -71,6 +74,18 @@ function add_tooltips_post_type() {
 			'add_new_item'                  => 'Add New Tooltips',
 			'new_item_name'                 => 'New Tooltips',
 	);
+	*/
+	//10.0.9
+	$catlabels = array(
+		'name'                          => 'Categories',
+		'singular_name'                 => 'Tooltips Categories',
+		'all_items'                     => 'All Tooltips Categories',
+		'parent_item'                   => 'Parent Tooltips Category',
+		'edit_item'                     => 'Edit Tooltips Category',
+		'update_item'                   => 'Update Tooltips Category',
+		'add_new_item'                  => 'Add New Tooltips Category',
+		'new_item_name'                 => 'New Tooltips Category',
+);
 
 	$args = array(
 			'label'                         => 'Categories',
@@ -1817,7 +1832,7 @@ function upgrade_check()
 		update_option("seletEnableJqueryMigrate", 'YES');
 	   //!!! end 7.9.7
 	}
-	update_option('ztooltipversion','10.0.3');
+	update_option('ztooltipversion','10.0.9');
 }
 add_action( 'init', 'upgrade_check');
 
