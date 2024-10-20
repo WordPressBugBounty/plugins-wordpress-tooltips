@@ -308,9 +308,12 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.1.3 =
+>[Enhancing the WordPress Tooltips Plugin with Tag Support, WordPress Tooltips Pro Plus 33.0.8, WordPress Tooltips Pro 20.4.4, WordPress Tooltips Free 10.1.3](https://tooltips.org/enhancing-the-wordpress-tooltips-plugin-with-tag-support-wordpress-tooltips-pro-plus-33-0-8-wordpress-tooltips-pro-20-4-4-wordpress-tooltips-free-10-1-3/)
+fixed a php warning issue
+
 = Version 10.0.9 =
 >[Fixing Tooltips Category Error in Wordpress Tooltips Plugin](https://tooltips.org/fixing-tooltips-category-error-in-wordpress-tooltips-plugin/)
-
 
 = Version 10.0.3 =
 Only load bootstrap.css and bootstrap.js in the wordpress tooltips directory settings panel
