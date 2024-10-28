@@ -17,7 +17,7 @@ span.questionlanguagecustomizationaddon, span.questionlanguageforglossary, span.
 , span.questiondisableTooltipandEnableGlossary, span.spanquestiontooltipforleftcolumnglossarytable
 , span.questioncontactform7, span.questiontooltipformaxbutton, span.questionlinktooltiptermtotooltippage
 , span.questionaccesstooltipwithtabkey, span.spanquestiontooltipforrightcolumnglossarytable
-, span.questionenablegutenbergfortooltips
+, span.questionenablegutenbergfortooltips, span.hidezeronumberitemforglossary
 {
   cursor: pointer;
   display: inline-block;
@@ -44,7 +44,7 @@ span.questionlanguagecustomizationaddon:hover, span.questionlanguageforglossary:
 , span.spanquestiontooltipforleftcolumnglossarytable:hover, span.questioncontactform7:hover
 , span.questiontooltipformaxbutton:hover, span.questionlinktooltiptermtotooltippage:hover
 , span.questionaccesstooltipwithtabkey:hover, span.spanquestiontooltipforrightcolumnglossarytable:hover
-, span.questionenablegutenbergfortooltips:hover
+, span.questionenablegutenbergfortooltips:hover,  span.hidezeronumberitemforglossary:hover
 {
 	background-color: #21759b; 
 }
@@ -258,7 +258,7 @@ div.glossary4, div.glossary5, div.glossary6, div.glossary8, div.glossary9, div.g
  , div.glossary14 , div.glossary15, div.glossary16, div.glossary17, div.glossary18, div.glossary19, div.glossary20, div.glossary21, div.glossary22
  , div.glossary23, div.glossary24, div.glossary25, div.glossary26, div.glossary27, div.glossary28, div.glossary29
  , div.glossarydisabletooltipsforglossary, div.questionglossarysearchable, div.glossary23, div.glossaryexcerptorcontent
- , div.glossarybulkremovetermfromglossarylist
+ , div.glossarybulkremovetermfromglossarylist, div.glossary27
 {
   text-align: left;
   left: 25px;

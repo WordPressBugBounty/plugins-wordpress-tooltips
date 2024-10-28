@@ -154,6 +154,14 @@ if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
 }
 // end 9.8.9
 
+//10.2.3
+	if (isset($_POST['hidezeronumberitem']))
+	{
+		$hidezeronumberitem = sanitize_text_field($_POST['hidezeronumberitem']);
+		update_option("hidezeronumberitem", $hidezeronumberitem);
+	}
+//end 10.2.3	
+
 	$tooltipsMessageProString =  __( 'Changes saved', 'wordpress-tooltips' );
 	tooltipsMessage($tooltipsMessageProString);
 }
@@ -175,6 +183,8 @@ if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
 	// 7.3.1
 	$glossaryNumbersOrNot =  get_option("glossaryNumbersOrNot");
 	$hidecountnumberitem = get_option("hidecountnumberitem"); // !!! 7.8.1
+	//10.2.3
+	$hidezeronumberitem = get_option('hidezeronumberitem');
 ?>
 		<div class="wrap">
 			<div id="dashboard-widgets-wrap">
@@ -620,6 +630,45 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 ?>										
 										</tr>
 <?php // !!! end 9.7.9  ?>
+<?php  // !!! 10.2.3 ?>
+										<tr>
+										<td style='width:25%'>
+										<?php
+											echo __( 'Hide Nav letters have no item: ', 'wordpress-tooltips' ).'<span class="hidezeronumberitemforglossary">?</span>';
+										?>
+										<?php
+											$admin_tip = __('By default, all letters will shown in glossary Nav bar, you can select hidden letters which have no any tooltips associated with them.', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.hidezeronumberitemforglossary").hover(function () {
+										    jQuery(this).append('<div class="glossary27"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.glossary27").remove();
+										  });
+										});
+										</script>
+										</td>
+										
+										<td style='width:25%'>
+										<?php
+											$hidezeronumberitem = get_option('hidezeronumberitem');
+										?>
+										<select id="hidezeronumberitem" name="hidezeronumberitem" style="width:98%;">
+										<option id="hidezeronumberitemyOption" value="no"  <?php if ($hidezeronumberitem == 'no') echo "selected";   ?>> <?php echo __('NO', "wordpress-tooltips") ?> </option>
+										<option id="hidezeronumberitemyOption" value="yes" <?php if ($hidezeronumberitem == 'yes') echo "selected";   ?>>  <?php echo __('YES', "wordpress-tooltips") ?> </option>
+										</select>
+										</td>
+										
+										<td style='width:25%'>
+										</td>
+
+										<td style='width:25%'>
+										</td>
+										</tr>
+<?php // !!! end 9.7.9  ?>
+
+<?php // end 10.2.3 ?>
 										</table>
 										<br />
 										<input type="submit" class="button-primary" id="toolstipsCustomizedsubmit" name="toolstipsCustomizedsubmit" value=" <?php echo __( 'Save Changes', 'wordpress-tooltips' ) ?> ">

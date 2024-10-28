@@ -3,7 +3,7 @@
 Plugin Name: Tooltips
 Plugin URI:  https://tooltips.org/features-of-wordpress-tooltips-plugin/
 Description: Wordpress Tooltips,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of WordPress Tooltips Pro</a>.
-Version: 10.1.3
+Version: 10.2.3
 Author: Tomas | <a href='https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/' target='_blank'>Docs</a> | <a href='https://tooltips.org/faq/' target='_blank'>FAQ</a> | <a href='https://tooltips.org/contact-us' target='_blank'>Premium Support</a> 
 Author URI: https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltips-demo/
 Text Domain: wordpress-tooltips
@@ -118,6 +118,11 @@ $taglabels = array(
 //10.1.3
 $enablegutenbergfortooltips = get_option('enablegutenbergfortooltips');
 //end 10.1.3
+//10.1.9
+if (empty($enablegutenbergfortooltips))
+{
+	$enablegutenbergfortooltips == 'NO';
+}
 
  if ($enablegutenbergfortooltips == 'NO')
  {
@@ -140,6 +145,7 @@ $enablegutenbergfortooltips = get_option('enablegutenbergfortooltips');
  }
  else
  {
+	/*
      $args = array(
          'label' => 'Categories',
          'labels' => $taglabels,
@@ -158,6 +164,25 @@ $enablegutenbergfortooltips = get_option('enablegutenbergfortooltips');
          'query_var' => true
      );
      //end 31.4.8  support gutenberg
+	 */
+	 //10.1.9
+     $args = array(
+		'label' => 'Tags',
+		'labels' => $taglabels,
+		'public' => true,
+		'hierarchical' => false,
+		'show_ui' => true,
+		'show_in_nav_menus' => true,
+		'show_in_rest' => true,
+		'args' => array(
+			'orderby' => 'term_order'
+		),
+		'rewrite' => array(
+			'slug' => 'tooltips_tags',
+			'with_front' => false
+		),
+		'query_var' => true
+	);	 
  }
      register_taxonomy('tooltips_tag', 'tooltips', $args);
 
@@ -1892,7 +1917,7 @@ function upgrade_check()
 		update_option("seletEnableJqueryMigrate", 'YES');
 	   //!!! end 7.9.7
 	}
-	update_option('ztooltipversion','10.1.3');
+	update_option('ztooltipversion','10.2.3');
 }
 add_action( 'init', 'upgrade_check');
 
@@ -2429,6 +2454,12 @@ function footernav()
 	$choseLanguageForGlossary = get_option("enableLanguageForGlossary");
 	if (empty($choseLanguageForGlossary)) $choseLanguageForGlossary = 'en';
 
+// !!! 10.2.3
+$hidezeronumberitem = get_option('hidezeronumberitem');
+if (empty($hidezeronumberitem))
+	$hidezeronumberitem = 'no';
+// end 10.2.3
+
 	$enableLanguageCustomization = get_option("enableLanguageCustomization");
 	if (empty($enableLanguageCustomization)) $choseLanguageForGlossary = 'en';
 	if ('NO' == $enableLanguageCustomization) $choseLanguageForGlossary = 'en';
@@ -2444,11 +2475,14 @@ function footernav()
 /*
  * 7.9.3
  * inboxs['language'] = "<?php echo $choseLanguageForGlossary; ?>";
+ * 10.2.3
+ * inboxs['hidezeronumberitem'] = "<?php echo $hidezeronumberitem; ?>";
  */
 ?>
 <script type="text/javascript">
 var inboxs = new Array();
 inboxs['language'] = "<?php echo esc_attr($choseLanguageForGlossary); ?>";
+inboxs['hidezeronumberitem'] = "<?php echo $hidezeronumberitem; ?>";
 inboxs['navitemselectedsize'] = '18px';
 inboxs['selectors'] = '.tooltips_list > span';
 <?php  // before 7.3.1  inboxs['number'] = 'yes'; 

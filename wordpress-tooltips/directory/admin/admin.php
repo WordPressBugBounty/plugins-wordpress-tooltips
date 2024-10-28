@@ -74,7 +74,7 @@ function tooltipdirectorysettingfree()
     post_directory_panel_free();
     memberdirectoryrolesetting_free();
     //9.4.3
-    job_board_directory_panel();
+    job_board_directory_panel_free();
     //end 9.4.3
     woocommerce_product_directory_panel_free();  //9.1.7
     */
@@ -105,7 +105,9 @@ function tooltipdirectorysettingfree()
         </div>
         <div class="tab-pane fade  navlink-2 " id="tab-2">
             <?php     
-             job_board_directory_panel();
+             //job_board_directory_panel();
+             //10.1.9
+             job_board_directory_panel_free();
             ?>
         </div>    
         <div class="tab-pane fade  navlink-3 " id="tab-3">
@@ -382,7 +384,9 @@ function woocommerce_product_directory_panel_free()
 //9.4.3
 
 //19.2.8
-function job_board_directory_panel()
+//function job_board_directory_panel()
+//10.1.9
+function job_board_directory_panel_free()
 {
     if (isset($_POST['jobboardDirectorySelect']))
     {

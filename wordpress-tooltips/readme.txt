@@ -308,6 +308,12 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.2.3 =
+>[How to Hide Letters Without Items in Glossary](https://tooltips.org/how-to-hide-letters-without-items-in-glossary-wordpress-tooltips-free-10-2-3/)
+
+= Version 10.1.9 =
+Improved codes of tooltip tags and directory functions
+
 = Version 10.1.3 =
 >[Enhancing the WordPress Tooltips Plugin with Tag Support, WordPress Tooltips Pro Plus 33.0.8, WordPress Tooltips Pro 20.4.4, WordPress Tooltips Free 10.1.3](https://tooltips.org/enhancing-the-wordpress-tooltips-plugin-with-tag-support-wordpress-tooltips-pro-plus-33-0-8-wordpress-tooltips-pro-20-4-4-wordpress-tooltips-free-10-1-3/)
 fixed a php warning issue

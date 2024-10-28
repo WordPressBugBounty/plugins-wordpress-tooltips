@@ -4,7 +4,9 @@ if (!defined('ABSPATH'))
 	exit;
 }
 
-function job_listing_table_shortcode_pro($atts)
+//job_listing_table_shortcode_pro
+//10.1.9
+function job_listing_table_shortcode_free($atts)
 {
 	global $table_prefix,$wpdb,$post;
 
@@ -147,11 +149,18 @@ function job_listing_table_shortcode_pro($atts)
 
 	return $return_content;
 }
-add_shortcode( 'joblistingtable', 'job_listing_table_shortcode_pro',10 );
-add_shortcode( 'jobmanagerdirectory', 'job_listing_table_shortcode_pro',10 );
+
+
+//add_shortcode( 'joblistingtable', 'job_listing_table_shortcode_pro',10 );
+//add_shortcode( 'jobmanagerdirectory', 'job_listing_table_shortcode_pr',10 );
+//10.1.9
+add_shortcode( 'joblistingtable', 'job_listing_table_shortcode_free',10 );
+add_shortcode( 'jobmanagerdirectory', 'job_listing_table_shortcode_free',10 );
 
 //!!! 14.0.4
-function disabletooltipforjob_listingdirectory()
+//function disabletooltipforjob_listingdirectory()
+//10.1.9
+function disabletooltipforjob_listingdirectory_free()
 {
 	$tooltipforleftcolumnglossarytable = get_option("tooltipforleftcolumnglossarytable");
 	$tooltipforrightcolumnglossarytable = get_option("tooltipforrightcolumnglossarytable");
@@ -198,5 +207,7 @@ function disabletooltipforjob_listingdirectory()
 		
 
 }
-add_action('wp_footer','disabletooltipforjob_listingdirectory');
+//add_action('wp_footer','disabletooltipforjob_listingdirectory');
+//10.1.9
+add_action('wp_footer','disabletooltipforjob_listingdirectory_free');
 
