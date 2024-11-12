@@ -4,7 +4,7 @@ Author URI: https://tooltips.org/
 Donate link: https://paypal.me/sunpayment
 Tags:tooltip,glossary,dictionary,woocommerce,knowledge base
 Requires at least: 3.8
-Tested up to: 6.6.2
+Tested up to: 6.6.5
 Stable tag:trunk
 License: GPLv3 or later
 
@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.3.3 =
+>[New option in the 'Custom Language' panel](https://tooltips.org/new-option-in-the-custom-language-panel-wordpress-tooltips-free-10-3-3-has-been-released/)
+
 = Version 10.2.3 =
 >[How to Hide Letters Without Items in Glossary](https://tooltips.org/how-to-hide-letters-without-items-in-glossary-wordpress-tooltips-free-10-2-3/)
 

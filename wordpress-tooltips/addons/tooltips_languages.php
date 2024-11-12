@@ -68,6 +68,24 @@ function tooltipsFreeLanguageMenu()
 		tooltipsMessage('Glossary language has been changed');
 	}
 
+
+	//10.3.3
+	if (isset($_POST['tooltipLanguageReadMeSubmit']))
+	{
+		check_admin_referer ( 'tooltipslanguagenonce' );
+		$tooltipLanguageReadMe = sanitize_text_field($_POST['tooltipLanguageReadMe']);
+
+		update_option('tooltipLanguageReadMe', $tooltipLanguageReadMe);
+		tooltipsMessage('Language of "Read More" has been changed');
+	}
+
+	$tooltipLanguageReadMe = get_option('tooltipLanguageReadMe');
+	if (empty($tooltipLanguageReadMe))
+	{
+		$tooltipLanguageReadMe = 'Read More';
+	}
+	//end 10.3.3
+
 	$glossaryLanguageCustomNavALL = get_option('glossaryLanguageCustomNavALL');
 	if (empty($glossaryLanguageCustomNavALL))
 	{
@@ -109,4 +127,35 @@ function tooltipsFreeLanguageMenu()
 	$content .= '</form>';
 	
 	tooltips_free_language_setting_panel($title, $content);
+
+	//start 10.3.3
+	$title = 'Custom "Read More" in the excerpt paragraph -- this "Read More" will only appear when users decide to use the excerpt as the content in glossary ';
+	$content = '';
+	
+	$tooltipLanguageReadMe = get_option('tooltipLanguageReadMe');
+	if (empty($tooltipLanguageReadMe))
+	{
+		$tooltipLanguageReadMe = "Read More";
+	}
+	
+	$content .= '<form class="formTooltips" name="formTooltips" action="" method="POST">';
+	$content .= wp_nonce_field ( 'tooltipslanguagenonce');
+	$content .= '<table id="tableTooltips" width="100%">';
+	
+	$content .= '<tr style="text-align:left;">';
+	$content .= '<td width="25%"  style="text-align:left;">';
+	$content .= 'Custom "Read More" in Tooltips Excerpt: ';
+	$content .= '</td>';
+	$content .= '<td width="30%"  style="text-align:left;">';
+	$content .=  '<input type="text" style="width:300px;" id="tooltipLanguageReadMe" name="tooltipLanguageReadMe" value="'.  $tooltipLanguageReadMe .'" required placeholder="More Details">';
+	$content .= '</td>';
+	$content .= '<td width="30%"  style="text-align:left;">';
+	$content .= '<input type="submit" class="button-primary" id="tooltipLanguageReadMeSubmit" name="tooltipLanguageReadMeSubmit" value=" Submit ">';
+	$content .= '</td>';
+	$content .= '</tr>';
+	
+	$content .= '</table>';
+	$content .= '</form>';
+	tooltips_free_language_setting_panel($title, $content);	
+	//end 10.3.3
 }

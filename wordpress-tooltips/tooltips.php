@@ -3,7 +3,7 @@
 Plugin Name: Tooltips
 Plugin URI:  https://tooltips.org/features-of-wordpress-tooltips-plugin/
 Description: Wordpress Tooltips,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of WordPress Tooltips Pro</a>.
-Version: 10.2.3
+Version: 10.3.3
 Author: Tomas | <a href='https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/' target='_blank'>Docs</a> | <a href='https://tooltips.org/faq/' target='_blank'>FAQ</a> | <a href='https://tooltips.org/contact-us' target='_blank'>Premium Support</a> 
 Author URI: https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltips-demo/
 Text Domain: wordpress-tooltips
@@ -1917,7 +1917,7 @@ function upgrade_check()
 		update_option("seletEnableJqueryMigrate", 'YES');
 	   //!!! end 7.9.7
 	}
-	update_option('ztooltipversion','10.2.3');
+	update_option('ztooltipversion','10.3.3');
 }
 add_action( 'init', 'upgrade_check');
 
@@ -2411,9 +2411,24 @@ function tooltips_table_shortcode($atts)
 			if ($glossaryExcerptOrContentSelect == 'glossaryexcerpt')
 			{
 				$m_content =  wp_trim_excerpt('',$single->ID);
+
+				//10.3.3 start
+				$m_content_full = $single->post_content ;
+				//10.3.3 end
+
 				if (empty($single->post_excerpt))
 				{
-					$m_content =  wp_trim_excerpt('',$single->ID);
+					// before 10.3.3 $m_content =  wp_trim_excerpt('',$single->ID);
+					//10.3.3 start
+					$tooltipLanguageReadMe = get_option('tooltipLanguageReadMe');
+					if (empty($tooltipLanguageReadMe))
+					{
+						$tooltipLanguageReadMe = 'Read More';
+					}
+					$excerpt_more = tt_excerpt_more_free($single->ID,$tooltipLanguageReadMe);                        
+					$excerpt_length = 55;
+					$m_content = tt_wp_trim_words_free($m_content_full, $excerpt_length, $excerpt_more); 
+					//10.3.3 end
 				}
 				else
 				{
