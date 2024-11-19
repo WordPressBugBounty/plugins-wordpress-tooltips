@@ -162,6 +162,13 @@ if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
 	}
 //end 10.2.3	
 
+// 10.4.3
+if (isset($_POST['selectremovenavbaringlossarypage']))
+{
+	$selectremovenavbaringlossarypage = sanitize_text_field($_POST['selectremovenavbaringlossarypage']);
+	update_option("selectremovenavbaringlossarypage",$selectremovenavbaringlossarypage);
+}
+// end 10.4.3
 	$tooltipsMessageProString =  __( 'Changes saved', 'wordpress-tooltips' );
 	tooltipsMessage($tooltipsMessageProString);
 }
@@ -185,6 +192,8 @@ if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
 	$hidecountnumberitem = get_option("hidecountnumberitem"); // !!! 7.8.1
 	//10.2.3
 	$hidezeronumberitem = get_option('hidezeronumberitem');
+	//10.4.3
+	$selectremovenavbaringlossarypage = get_option('selectremovenavbaringlossarypage');
 ?>
 		<div class="wrap">
 			<div id="dashboard-widgets-wrap">
@@ -659,12 +668,35 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 										<option id="hidezeronumberitemyOption" value="yes" <?php if ($hidezeronumberitem == 'yes') echo "selected";   ?>>  <?php echo __('YES', "wordpress-tooltips") ?> </option>
 										</select>
 										</td>
-										
+<?php
+// start 10.4.3 
+?>										
 										<td style='width:25%'>
+										<?php
+											echo __( 'Remove Navigation Bar in Glossary Page: ', 'wordpress-tooltips' ).'<span class="removenavbaringlossarypage">?</span>';
+										?>
+										<?php
+											$admin_tip = __('By default, we will show navigation bar in glossary page, you can select to remove navigation bar to make the glossary simple and clean.', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.removenavbaringlossarypage").hover(function () {
+										    jQuery(this).append('<div class="glossaryremovenavbaringlossarypage"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.glossaryremovenavbaringlossarypage").remove();
+										  });
+										});
+										</script>
 										</td>
-
 										<td style='width:25%'>
+										<select id="selectremovenavbaringlossarypage" name="selectremovenavbaringlossarypage" style="width:98%;">
+										<option id="optionremovenavbaringlossarypage" value="no"  <?php if ($selectremovenavbaringlossarypage == 'no') echo "selected";   ?>> <?php echo __('NO', "wordpress-tooltips") ?> </option>
+										<option id="optionremovenavbaringlossarypage" value="yes" <?php if ($selectremovenavbaringlossarypage == 'yes') echo "selected";   ?>>  <?php echo __('YES', "wordpress-tooltips") ?> </option>
+										</select>
 										</td>
+										<?php
+// end 10.4.3 
+?>				
 										</tr>
 <?php // !!! end 9.7.9  ?>
 

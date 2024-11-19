@@ -4,7 +4,7 @@ Author URI: https://tooltips.org/
 Donate link: https://paypal.me/sunpayment
 Tags:tooltip,glossary,dictionary,woocommerce,knowledge base
 Requires at least: 3.8
-Tested up to: 6.6.5
+Tested up to: 6.7
 Stable tag:trunk
 License: GPLv3 or later
 
@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.4.3 =
+>[Enhancing Glossary: New Option to Remove Alphabetical Navigation for a Minimalist Experience](https://tooltips.org/enhancing-glossary-new-option-to-remove-alphabetical-navigation-for-a-minimalist-experience-wordpress-tooltips-10-4-3/)
+
 = Version 10.3.3 =
 >[New option in the 'Custom Language' panel](https://tooltips.org/new-option-in-the-custom-language-panel-wordpress-tooltips-free-10-3-3-has-been-released/)
 
