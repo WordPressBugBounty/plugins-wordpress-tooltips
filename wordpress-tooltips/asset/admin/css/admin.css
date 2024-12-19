@@ -17,7 +17,7 @@ span.questionlanguagecustomizationaddon, span.questionlanguageforglossary, span.
 , span.questiondisableTooltipandEnableGlossary, span.spanquestiontooltipforleftcolumnglossarytable
 , span.questioncontactform7, span.questiontooltipformaxbutton, span.questionlinktooltiptermtotooltippage
 , span.questionaccesstooltipwithtabkey, span.spanquestiontooltipforrightcolumnglossarytable
-, span.questionenablegutenbergfortooltips, span.hidezeronumberitemforglossary
+, span.questionenablegutenbergfortooltips, span.hidezeronumberitemforglossary, span.questionglossaryinnewwindow
 {
   cursor: pointer;
   display: inline-block;
@@ -45,6 +45,7 @@ span.questionlanguagecustomizationaddon:hover, span.questionlanguageforglossary:
 , span.questiontooltipformaxbutton:hover, span.questionlinktooltiptermtotooltippage:hover
 , span.questionaccesstooltipwithtabkey:hover, span.spanquestiontooltipforrightcolumnglossarytable:hover
 , span.questionenablegutenbergfortooltips:hover,  span.hidezeronumberitemforglossary:hover
+, span.questionglossaryinnewwindow:hover
 {
 	background-color: #21759b; 
 }
@@ -55,6 +56,7 @@ div.tooltiplanguagecustomizationaddon, div.tooltipforoceanwp, div.glossaryremove
 , div.divdisableTooltipandEnableGlossary, div.divquestiontooltipforleftcolumnglossarytable, div.tooltip6
 , div.divtooltipformaxbutton, div.divlinktooltiptermtotooltippage, div.divaccesstooltipwithtabkey
 , div.divquestiontooltipforrightcolumnglossarytable, div.divenablegutenbergfortooltips
+, div.divquestionglossaryinnewwindow
 {
   text-align: left;
   left: 25px;
@@ -74,6 +76,7 @@ top: -20px;
 , .divdisableTooltipandEnableGlossary:before, .divquestiontooltipforleftcolumnglossarytable:before, .tooltip6:before
 , .divtooltipformaxbutton:before, .divlinktooltiptermtotooltippage:before, .divaccesstooltipwithtabkey:before
 , .divquestiontooltipforrightcolumnglossarytable:before, .divenablegutenbergfortooltips:before
+, .divquestionglossaryinnewwindow:before
 {
   border-color: transparent #21759b transparent transparent;
   border-right: 6px solid #21759b;
@@ -95,7 +98,7 @@ top: -20px;
 , .divdisableTooltipandEnableGlossary p, .divquestiontooltipforleftcolumnglossarytable p, .tooltip6 p
 , .divtooltipformaxbutton p, .divlinktooltiptermtotooltippage p, .divaccesstooltipwithtabkey p
 , .divquestiontooltipcontentfontstyle p, .divquestiontooltipforrightcolumnglossarytable p
-, .divenablegutenbergfortooltips p
+, .divenablegutenbergfortooltips p, .divquestionglossaryinnewwindow p
 {
   margin: 10px;
  line-height:16px;

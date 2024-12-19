@@ -169,6 +169,15 @@ if (isset($_POST['selectremovenavbaringlossarypage']))
 	update_option("selectremovenavbaringlossarypage",$selectremovenavbaringlossarypage);
 }
 // end 10.4.3
+
+// 10.4.9 
+	if (isset($_POST['enableGlossaryInNewWindow']))
+	{
+	    $enableGlossaryInNewWindow = sanitize_text_field($_POST['enableGlossaryInNewWindow']);
+	    update_option("enableGlossaryInNewWindow",$enableGlossaryInNewWindow);
+	}	
+//end 10.4.9
+
 	$tooltipsMessageProString =  __( 'Changes saved', 'wordpress-tooltips' );
 	tooltipsMessage($tooltipsMessageProString);
 }
@@ -194,6 +203,8 @@ if (isset($_POST['selectremovenavbaringlossarypage']))
 	$hidezeronumberitem = get_option('hidezeronumberitem');
 	//10.4.3
 	$selectremovenavbaringlossarypage = get_option('selectremovenavbaringlossarypage');
+	// 10.4.9
+	$enableGlossaryInNewWindow = get_option("enableGlossaryInNewWindow");
 ?>
 		<div class="wrap">
 			<div id="dashboard-widgets-wrap">
@@ -698,9 +709,49 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 // end 10.4.3 
 ?>				
 										</tr>
-<?php // !!! end 9.7.9  ?>
+<?php // !!! end 9.7.9  
+	// 10.4.9
+?>
+										<tr>
+										<td style='width:25%'>
+										<?php
+											echo __( 'Open Glossary in New Window: ', 'wordpress-tooltips' ).'<span class="questionglossaryinnewwindow">?</span>';
+										?>
+										<?php
+										$admin_tip = __('Open the glossary item in a new window', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.questionglossaryinnewwindow").hover(function () {
+										    jQuery(this).append('<div class="divquestionglossaryinnewwindow"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.divquestionglossaryinnewwindow").remove();
+										  });
+										});
+										</script>																	
+										</td>
 
-<?php // end 10.2.3 ?>
+										<td style='width:25%'>
+										<?php 
+											$enableGlossaryInNewWindow = get_option('enableGlossaryInNewWindow');
+										?>
+										<select id="enableGlossaryInNewWindow" name="enableGlossaryInNewWindow" style="width:98%;">
+										<option id="enableGlossaryInNewWindowOption" value="no" <?php if ($enableGlossaryInNewWindow == 'no') echo "selected";   ?>>  <?php echo __('NO', "wordpress-tooltips") ?> </option>
+										<option id="enableGlossaryInNewWindowOption" value="yes"  <?php if ($enableGlossaryInNewWindow == 'yes') echo "selected";   ?>> <?php echo __('YES', "wordpress-tooltips") ?> </option>
+										</select>
+										</td>
+									
+										<td style='width:25%'>
+										</td>
+										<td style='width:25%'>
+										</td>
+										<?php
+?>				
+										</tr>
+<?php 
+// end 10.4.9
+// end 10.2.3 
+?>
 										</table>
 										<br />
 										<input type="submit" class="button-primary" id="toolstipsCustomizedsubmit" name="toolstipsCustomizedsubmit" value=" <?php echo __( 'Save Changes', 'wordpress-tooltips' ) ?> ">

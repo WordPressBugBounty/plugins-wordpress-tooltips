@@ -4,7 +4,7 @@ Author URI: https://tooltips.org/
 Donate link: https://paypal.me/sunpayment
 Tags:tooltip,glossary,dictionary,woocommerce,knowledge base
 Requires at least: 3.8
-Tested up to: 6.7
+Tested up to: 6.7.1
 Stable tag:trunk
 License: GPLv3 or later
 
@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.4.9 =
+>[Enhance Your WordPress Tooltips: Open Glossary Links in New Pages](https://tooltips.org/how-to-open-a-glossary-term-link-in-a-new-page-in-wordpress-tooltips-supported-by-wordpress-tooltips-free-10-4-9/)
+
 = Version 10.4.3 =
 >[Enhancing Glossary: New Option to Remove Alphabetical Navigation for a Minimalist Experience](https://tooltips.org/enhancing-glossary-new-option-to-remove-alphabetical-navigation-for-a-minimalist-experience-wordpress-tooltips-10-4-3/)
 
