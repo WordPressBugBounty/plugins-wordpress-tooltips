@@ -2809,13 +2809,30 @@ function tom_display_panel_in_admin_free($panel_title,$panel_label,$panel_conten
 
 
 //9.3.5
+//10.5.3
 function tt_excerpt_more_free($excerpt_more_post_id,$excerpt_more_str)
 {
-	$excerpt_more = ' <a href="'. get_permalink($excerpt_more_post_id). '">' . __("$excerpt_more_str", 'wordpress-tooltips') . '</a>';
+	//!!! before 10.5.3 $excerpt_more = ' <a href="'. get_permalink($excerpt_more_post_id). '">' . __("$excerpt_more_str", 'wordpress-tooltips') . '</a>';
+	
+	//10.5.3
+	$enableGlossaryReadMoreInNewWindow = get_option('enableGlossaryReadMoreInNewWindow');
+	
+	if ($enableGlossaryReadMoreInNewWindow == 'yes')
+	{
+		$excerpt_more = ' <a href="'. get_permalink($excerpt_more_post_id). '" target="_blank">' . __("$excerpt_more_str", 'wordpress-tooltips') . '</a>';
+	}
+	else
+	{
+		$excerpt_more = ' <a href="'. get_permalink($excerpt_more_post_id). '">' . __("$excerpt_more_str", 'wordpress-tooltips') . '</a>';
+		
+	}
+
 	return $excerpt_more;
 }
 
 //9.3.5
+//10.5.3
+
 function tt_wp_trim_words_free( $text, $num_words = 55, $more = null ) {
 	if ( null === $more ) {
 		$more = __( '&hellip;' );
@@ -2859,3 +2876,4 @@ function tt_wp_trim_words_free( $text, $num_words = 55, $more = null ) {
 	 */
 	return apply_filters( 'tt_wp_trim_words', $text, $num_words, $more, $original_text );
 }
+

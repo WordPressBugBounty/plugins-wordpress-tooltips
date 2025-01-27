@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.5.3 =
+>[Never Lose Your Place: How to Use New Window Links in Your Glossary](https://tooltips.org/never-lose-your-place-how-to-use-new-window-links-in-your-glossary-wordpress-tooltip-free-10-5-3-released/)
+
 = Version 10.4.9 =
 >[Enhance Your WordPress Tooltips: Open Glossary Links in New Pages](https://tooltips.org/how-to-open-a-glossary-term-link-in-a-new-page-in-wordpress-tooltips-supported-by-wordpress-tooltips-free-10-4-9/)
 

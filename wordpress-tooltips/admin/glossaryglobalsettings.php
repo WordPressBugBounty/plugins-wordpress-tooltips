@@ -146,37 +146,45 @@ if (isset($_POST['toolstipsCustomizedsubmit']))
 		update_option("tooltipforrightcolumnglossarytable",$selecttooltipforrightcolumnglossarytable);
 	}
 
-// !!! start 9.8.9
-if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
-{
-	$selectcaseforleftcolumnglossarytitle = sanitize_text_field($_POST['selectcaseforleftcolumnglossarytitle']);
-	update_option("selectcaseforleftcolumnglossarytitle",$selectcaseforleftcolumnglossarytitle);
-}
-// end 9.8.9
-
-//10.2.3
-	if (isset($_POST['hidezeronumberitem']))
+	// !!! start 9.8.9
+	if (isset($_POST['selectcaseforleftcolumnglossarytitle']))
 	{
-		$hidezeronumberitem = sanitize_text_field($_POST['hidezeronumberitem']);
-		update_option("hidezeronumberitem", $hidezeronumberitem);
+		$selectcaseforleftcolumnglossarytitle = sanitize_text_field($_POST['selectcaseforleftcolumnglossarytitle']);
+		update_option("selectcaseforleftcolumnglossarytitle",$selectcaseforleftcolumnglossarytitle);
 	}
-//end 10.2.3	
+	// end 9.8.9
 
-// 10.4.3
-if (isset($_POST['selectremovenavbaringlossarypage']))
-{
-	$selectremovenavbaringlossarypage = sanitize_text_field($_POST['selectremovenavbaringlossarypage']);
-	update_option("selectremovenavbaringlossarypage",$selectremovenavbaringlossarypage);
-}
-// end 10.4.3
+	//10.2.3
+		if (isset($_POST['hidezeronumberitem']))
+		{
+			$hidezeronumberitem = sanitize_text_field($_POST['hidezeronumberitem']);
+			update_option("hidezeronumberitem", $hidezeronumberitem);
+		}
+	//end 10.2.3	
 
-// 10.4.9 
-	if (isset($_POST['enableGlossaryInNewWindow']))
+	// 10.4.3
+	if (isset($_POST['selectremovenavbaringlossarypage']))
 	{
-	    $enableGlossaryInNewWindow = sanitize_text_field($_POST['enableGlossaryInNewWindow']);
-	    update_option("enableGlossaryInNewWindow",$enableGlossaryInNewWindow);
-	}	
-//end 10.4.9
+		$selectremovenavbaringlossarypage = sanitize_text_field($_POST['selectremovenavbaringlossarypage']);
+		update_option("selectremovenavbaringlossarypage",$selectremovenavbaringlossarypage);
+	}
+	// end 10.4.3
+
+	// 10.4.9 
+		if (isset($_POST['enableGlossaryInNewWindow']))
+		{
+			$enableGlossaryInNewWindow = sanitize_text_field($_POST['enableGlossaryInNewWindow']);
+			update_option("enableGlossaryInNewWindow",$enableGlossaryInNewWindow);
+		}	
+	//end 10.4.9
+
+	// 10.5.3
+		if (isset($_POST['enableGlossaryReadMoreInNewWindow']))
+		{
+			$enableGlossaryReadMoreInNewWindow = sanitize_text_field($_POST['enableGlossaryReadMoreInNewWindow']);
+			update_option("enableGlossaryReadMoreInNewWindow",$enableGlossaryReadMoreInNewWindow);
+		}	
+	//end 10.5.3
 
 	$tooltipsMessageProString =  __( 'Changes saved', 'wordpress-tooltips' );
 	tooltipsMessage($tooltipsMessageProString);
@@ -205,6 +213,8 @@ if (isset($_POST['selectremovenavbaringlossarypage']))
 	$selectremovenavbaringlossarypage = get_option('selectremovenavbaringlossarypage');
 	// 10.4.9
 	$enableGlossaryInNewWindow = get_option("enableGlossaryInNewWindow");
+	//10.5.3
+	$enableGlossaryReadMoreInNewWindow = get_option('enableGlossaryReadMoreInNewWindow');
 ?>
 		<div class="wrap">
 			<div id="dashboard-widgets-wrap">
@@ -741,16 +751,39 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 										</select>
 										</td>
 									
-										<td style='width:25%'>
-										</td>
-										<td style='width:25%'>
-										</td>
 										<?php
-?>				
+// start 10.5.3
+?>
+										<td style='width:25%'>
+										<?php
+											echo __( 'Open Read-More in New Window: ', 'wordpress-tooltips' ).'<span class="questionreadmoreinnewwindow">?</span>';
+										?>
+										<?php
+										$admin_tip = __('When click the read more link in glossary, we will open the glossary item in a new window', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.questionreadmoreinnewwindow").hover(function () {
+										    jQuery(this).append('<div class="divquestionreadmoreinnewwindow"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.divquestionreadmoreinnewwindow").remove();
+										  });
+										});
+										</script>																	
+										</td>
+
+										<td style='width:25%'>
+										<?php 
+											$enableGlossaryReadMoreInNewWindow = get_option('enableGlossaryReadMoreInNewWindow');
+										?>
+										<select id="enableGlossaryReadMoreInNewWindow" name="enableGlossaryReadMoreInNewWindow" style="width:98%;">
+										<option id="enableGlossaryReadMoreInNewWindowOption" value="yes"  <?php if ($enableGlossaryReadMoreInNewWindow == 'yes') echo "selected";   ?>> <?php echo __('YES', "wordpress-tooltips") ?> </option>
+										<option id="enableGlossaryReadMoreInNewWindowOption" value="no" <?php if ($enableGlossaryReadMoreInNewWindow == 'no') echo "selected";   ?>>  <?php echo __('NO', "wordpress-tooltips") ?> </option>
+										</select>
+										</td>
 										</tr>
 <?php 
-// end 10.4.9
-// end 10.2.3 
+// end 10.5.3
 ?>
 										</table>
 										<br />
