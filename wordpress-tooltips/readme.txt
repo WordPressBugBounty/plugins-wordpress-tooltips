@@ -4,7 +4,7 @@ Author URI: https://tooltips.org/
 Donate link: https://paypal.me/sunpayment
 Tags:tooltip,glossary,dictionary,woocommerce,knowledge base
 Requires at least: 3.8
-Tested up to: 6.7.1
+Tested up to: 6.7.2
 Stable tag:trunk
 License: GPLv3 or later
 
@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.5.9 =
+>[Customizing Your Glossary: Adding WordPress Tooltip Categories Under Item Titles](https://tooltips.org/customizing-your-glossary-adding-wordpress-tooltip-categories-under-item-titles-wordpress-tooltips-free-plugin-10-5-9-released/)
+
 = Version 10.5.3 =
 >[Never Lose Your Place: How to Use New Window Links in Your Glossary](https://tooltips.org/never-lose-your-place-how-to-use-new-window-links-in-your-glossary-wordpress-tooltip-free-10-5-3-released/)
 

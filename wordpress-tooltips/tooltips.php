@@ -3,7 +3,7 @@
 Plugin Name: Tooltips
 Plugin URI:  https://tooltips.org/features-of-wordpress-tooltips-plugin/
 Description: Wordpress Tooltips,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of WordPress Tooltips Pro</a>.
-Version: 10.5.3
+Version: 10.5.9
 Author: Tomas | <a href='https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/' target='_blank'>Docs</a> | <a href='https://tooltips.org/faq/' target='_blank'>FAQ</a> | <a href='https://tooltips.org/contact-us' target='_blank'>Premium Support</a> 
 Author URI: https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltips-demo/
 Text Domain: wordpress-tooltips
@@ -1917,7 +1917,7 @@ function upgrade_check()
 		update_option("seletEnableJqueryMigrate", 'YES');
 	   //!!! end 7.9.7
 	}
-	update_option('ztooltipversion','10.5.3');
+	update_option('ztooltipversion','10.5.9');
 }
 add_action( 'init', 'upgrade_check');
 
@@ -2366,6 +2366,9 @@ function tooltips_table_shortcode($atts)
 				}
 			}
 			//!!! end version 7.5.1
+
+			//10.5.9
+			$enableGlossaryCatNameUnderTerm = get_option("enableGlossaryCatNameUnderTerm");			
 			
 			$return_content .= '<div class="tooltips_list">';
 			$return_content .= '<span class="tooltips_table_items">';
@@ -2406,7 +2409,39 @@ function tooltips_table_shortcode($atts)
 
 			}
 			
+
+			// !!!! start 10.5.9
+			if ($enableGlossaryCatNameUnderTerm == 'yes') {
+				$enableGlossaryCategoryLink = get_option('enableGlossaryCategoryLink', 'no');
 			
+				$glossaryCat = get_the_terms($single->ID, 'tooltips_categories');
+			
+				if (!empty($glossaryCat) && is_array($glossaryCat) && count($glossaryCat) > 0) 
+				{
+					$return_content .= '</br>';
+					$return_content .= '<small><i>Category: ';
+			
+					foreach ($glossaryCat as $glossaryCat_single) {
+						if (is_object($glossaryCat_single) && isset($glossaryCat_single->name)) 
+						{
+							if ($enableGlossaryCategoryLink === 'yes') {
+								$termLink = esc_url(get_term_link($glossaryCat_single));
+								$return_content .= '<a href="' . $termLink . '" target="_blank">' . esc_html($glossaryCat_single->name) . '</a> ';
+							} else {
+								$return_content .= esc_html($glossaryCat_single->name) . ' ';
+							}
+						}
+					}
+			
+					$return_content .= '</i></small>';
+				}
+			}
+			else 
+			{
+				
+			}
+			// end 10.5.9
+
 			$return_content .='</div>';
 			$return_content .= '<div class="tooltips_table_content">';
 			//$return_content .=	$single->post_content;
