@@ -19,6 +19,7 @@ span.questionlanguagecustomizationaddon, span.questionlanguageforglossary, span.
 , span.questionaccesstooltipwithtabkey, span.spanquestiontooltipforrightcolumnglossarytable
 , span.questionenablegutenbergfortooltips, span.hidezeronumberitemforglossary, span.questionglossaryinnewwindow
 , span.questionreadmoreinnewwindow, span.spanquestionglossarycatnameunderterm
+, span.questionglossarycategorylink
 {
   cursor: pointer;
   display: inline-block;
@@ -47,7 +48,7 @@ span.questionlanguagecustomizationaddon:hover, span.questionlanguageforglossary:
 , span.questionaccesstooltipwithtabkey:hover, span.spanquestiontooltipforrightcolumnglossarytable:hover
 , span.questionenablegutenbergfortooltips:hover,  span.hidezeronumberitemforglossary:hover
 , span.questionglossaryinnewwindow:hover, span.questionreadmoreinnewwindow:hover
-, span.spanquestionglossarycatnameunderterm:hover
+, span.spanquestionglossarycatnameunderterm:hover, span.questionglossarycategorylink:hover
 {
 	background-color: #21759b; 
 }
@@ -59,6 +60,7 @@ div.tooltiplanguagecustomizationaddon, div.tooltipforoceanwp, div.glossaryremove
 , div.divtooltipformaxbutton, div.divlinktooltiptermtotooltippage, div.divaccesstooltipwithtabkey
 , div.divquestiontooltipforrightcolumnglossarytable, div.divenablegutenbergfortooltips
 , div.divquestionglossaryinnewwindow, div.divquestionreadmoreinnewwindow, div.divquestionglossarycatnameunderterm 
+, div.divquestionglossarycategorylink
 {
   text-align: left;
   left: 25px;
@@ -79,7 +81,7 @@ top: -20px;
 , .divtooltipformaxbutton:before, .divlinktooltiptermtotooltippage:before, .divaccesstooltipwithtabkey:before
 , .divquestiontooltipforrightcolumnglossarytable:before, .divenablegutenbergfortooltips:before
 , .divquestionglossaryinnewwindow:before, div.divquestionreadmoreinnewwindow:before
-.divquestionglossarycatnameunderterm:before
+.divquestionglossarycatnameunderterm:before, .divquestionglossarycategorylink:before
 {
   border-color: transparent #21759b transparent transparent;
   border-right: 6px solid #21759b;
@@ -103,6 +105,7 @@ top: -20px;
 , .divquestiontooltipcontentfontstyle p, .divquestiontooltipforrightcolumnglossarytable p
 , .divenablegutenbergfortooltips p, .divquestionglossaryinnewwindow p
 , .divquestionreadmoreinnewwindow p, .divquestionglossarycatnameunderterm p
+, .divquestionglossarycategorylink p
 {
   margin: 10px;
  line-height:16px;

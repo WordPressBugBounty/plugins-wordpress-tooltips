@@ -124,6 +124,15 @@ if (isset($_POST['toolstipsCustomizedsubmit']))
 	    update_option("hidecountnumberitem", $hidecountnumberitem);
 	}
 	//end 7.8.1
+
+	//10.6.3
+	if (isset($_POST['glossaryCategoryLink']))
+	{
+	    $enableGlossaryCategoryLink = sanitize_text_field($_POST['glossaryCategoryLink']);
+	    update_option("enableGlossaryCategoryLink",$enableGlossaryCategoryLink);
+	}
+	//end 10.6.3
+
 	//!!! 7.7.7
 	if (!(empty($glossaryIndexPageTermFontSize)))
 	{
@@ -224,6 +233,8 @@ if (isset($_POST['toolstipsCustomizedsubmit']))
 	$enableGlossaryReadMoreInNewWindow = get_option('enableGlossaryReadMoreInNewWindow');
 	//10.5.9
 	$enableGlossaryCatNameUnderTerm = get_option("enableGlossaryCatNameUnderTerm");	
+	//10.6.3
+	$enableGlossaryCategoryLink = get_option('enableGlossaryCategoryLink');
 ?>
 		<div class="wrap">
 			<div id="dashboard-widgets-wrap">
@@ -819,11 +830,35 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 										<option id="enableGlossaryCatNameUnderTermOption" value="no" <?php if ($enableGlossaryCatNameUnderTerm == 'no') echo "selected";   ?>>  <?php echo __('NO', "wordpress-tooltips") ?> </option>
 										</select>
 										</td>		
+
 										<td style='width:25%'>
+										<?php
+											echo __( 'Glossary Category linking:', 'wordpress-tooltips' ).'<span class="questionglossarycategorylink">?</span>';
+										?>
+										<?php
+										$admin_tip = __('linking the category name of a glossary item to the category archive page under glossary term in glossary list', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.questionglossarycategorylink").hover(function () {
+										    jQuery(this).append('<div class="divquestionglossarycategorylink"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.divquestionglossarycategorylink").remove();
+										  });
+										});
+										</script>																	
 										</td>
 
 										<td style='width:25%'>
+										<?php 
+											$enableGlossaryCategoryLink = get_option('enableGlossaryCategoryLink');
+										?>
+										<select id="glossaryCategoryLink" name="glossaryCategoryLink" style="width:98%;">
+										<option id="enableGlossaryCategoryLinkOption" value="yes"  <?php if ($enableGlossaryCategoryLink == 'yes') echo "selected";   ?>> <?php echo __('YES', "wordpress-tooltips") ?> </option>
+										<option id="enableGlossaryCategoryLinkOption" value="no" <?php if ($enableGlossaryCategoryLink == 'no') echo "selected";   ?>>  <?php echo __('NO', "wordpress-tooltips") ?> </option>
+										</select>
 										</td>
+
 										</tr>
 <?php
 // end 10.5.9
