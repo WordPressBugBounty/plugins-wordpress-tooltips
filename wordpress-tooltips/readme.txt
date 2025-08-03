@@ -4,7 +4,7 @@ Author URI: https://tooltips.org/
 Donate link: https://paypal.me/sunpayment
 Tags:tooltip,glossary,dictionary,woocommerce,knowledge base
 Requires at least: 3.8
-Tested up to: 6.8.1
+Tested up to: 6.8.2
 Stable tag:trunk
 License: GPLv3 or later
 
@@ -308,6 +308,9 @@ FAQs can be found here: https://tooltips.org/features-of-wordpress-tooltips-plug
 15. Video Tooltips
 
 == Changelog ==
+= Version 10.6.9 =
+In the select box labeled 'Glossary Term Capitalization,' I added a new option: 'Lowercase letters displayed for glossary terms in the title column of the glossary.
+
 = Version 10.6.3 =
 >[Creating a Seamless Learning Experience -- Linking Glossary Terms to Categories, WordPress Tooltips Free Plugin 10.6.3 Released](https://tooltips.org/creating-a-seamless-learning-experience-linking-glossary-terms-to-categories-wordpress-tooltips-free-plugin-10-6-3-released/)
 

@@ -673,6 +673,8 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 										<select id="selectcaseforleftcolumnglossarytitle" name="selectcaseforleftcolumnglossarytitle" style="width:98%;">
 										<option id="optionselectcaseforleftcolumnglossarytitle" value="DEFAULT" <?php if ($selectcaseforleftcolumnglossarytitle == 'DEFAULT') echo "selected";   ?>> <?php echo __( 'Display glossary term exactly as entered in the title coloumn of the glossary', 'wordpress-tooltips' ); ?> </option>
 										<option id="optionselectcaseforleftcolumnglossarytitle" value="UPPERCASE" <?php if ($selectcaseforleftcolumnglossarytitle == 'UPPERCASE') echo "selected";   ?>> <?php echo __( 'Uppercase letters display for glossary term in the title coloumn of the glossary', 'wordpress-tooltips' ); ?> </option>
+										<?php // 10.6.9 ?>
+										<option id="optionselectcaseforleftcolumnglossarytitle" value="LOWERCASE" <?php if ($selectcaseforleftcolumnglossarytitle == 'LOWERCASE') echo "selected";   ?>> <?php echo __( 'Lowercase letters display for glossary term in the title coloumn of the glossary', 'wordpress-tooltips' ); ?> </option>
 										</select>
 										</td>
 <?php
