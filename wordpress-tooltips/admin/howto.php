@@ -7,18 +7,18 @@ function tooltips_free_howto_setting()
 	global $wpdb, $wp_roles;
 	echo "<br />";
 
-	$setting_panel_head = 'How To Use Wordpress Tooltips:';
+	$setting_panel_head = 'How To Use Tooltips:';
 	tooltips_free_setting_panel_head ( $setting_panel_head );
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_1';
-	$tooltips_free_how_to_bar_title = 'How to Install Wordpress Tooltip';
+	$tooltips_free_how_to_bar_title = 'How to Install Tooltips for Wordpress';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>How to Install Wordpress Tooltip</h2>';
-	$tooltips_free_how_to_bar_content .= '#1 Download Wordpress tooltips from <a href="https://wordpress.org/plugins/wordpress-tooltips/"  target="_blank">wordpress pligin page</a>';
+	$tooltips_free_how_to_bar_content .= '<h2>How to Install Tooltips for Wordpress</h2>';
+	$tooltips_free_how_to_bar_content .= '#1 Download tooltips for  from <a href="https://wordpress.org/plugins/wordpress-tooltips/"  target="_blank">wordpress pligin page</a>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= '#2 Upload the WordPress Tooltips plugin zip file to your site via <a href="'. get_option('siteurl').'/wp-admin/plugins.php" target="_blank">' .' plugins menu</a>';
+	$tooltips_free_how_to_bar_content .= '#2 Upload the Tooltips for Wordpress plugin zip file to your site via <a href="'. get_option('siteurl').'/wp-admin/plugins.php" target="_blank">' .' plugins menu</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '#3 Activate the plugin "Tooltips" in '.'<a href="'. get_option('siteurl').'/wp-admin/plugins.php' .'"  target="_blank">' .' plugins page</a>';
@@ -28,11 +28,11 @@ function tooltips_free_howto_setting()
 	tooltips_free_howto_setting_panel ( $tooltips_free_default_how_to_bar_id,$tooltips_free_how_to_bar_title,$tooltips_free_how_to_bar_content );
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_2';
-	$tooltips_free_how_to_bar_title = 'How to Add / Edit / Delete Wordpress Tooltip?';
+	$tooltips_free_how_to_bar_title = 'How to Add / Edit / Delete Tooltips for Wordpress?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>How to Add / Edit / Delete Wordpress Tooltip</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>How to Add / Edit / Delete Tooltips for Wordpress</h2>';
 	$tooltips_free_how_to_bar_content .= 'It is very easy: ';
 	$tooltips_free_how_to_bar_content .= '<p>';	
 	$tooltips_free_how_to_bar_content .= '#1 If you want to add/edit/delete tooltips, please log in wordpress admin panel.';
@@ -44,7 +44,7 @@ function tooltips_free_howto_setting()
 	$tooltips_free_how_to_bar_content .= '#3 You can add new tooltip in “Add New” sub menu.';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= '#4 Please check our video tutorial at: '. ' <a href="https://tooltips.org/wordpress-tooltips-video-tutorial-4-how-to-create-your-first-tooltips-in-wordpress-tooltips-pro-plugin/" target="_blank">'. 'WordPress Tooltips Video Tutorial 4: How to Create Your First Tooltips'.'</a>';
+	$tooltips_free_how_to_bar_content .= '#4 Please check our video tutorial at: '. ' <a href="https://tooltips.org/wordpress-tooltips-video-tutorial-4-how-to-create-your-first-tooltips-in-wordpress-tooltips-pro-plugin/" target="_blank">'. 'Tooltips for Wordpress Video Tutorial 4: How to Create Your First Tooltips'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -54,11 +54,11 @@ function tooltips_free_howto_setting()
 	tooltips_free_howto_setting_panel ( $tooltips_free_default_how_to_bar_id,$tooltips_free_how_to_bar_title,$tooltips_free_how_to_bar_content );
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_3';
-	$tooltips_free_how_to_bar_title = 'How Wordpress Tooltips Works?';
+	$tooltips_free_how_to_bar_title = 'How Tooltips for Wordpress Works?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>How Wordpress Tooltips Works?</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>How Tooltips for Wordpress Works?</h2>';
 	$tooltips_free_how_to_bar_content .= 'In back end, you can '.'<a href="'. get_option('siteurl').'/wp-admin/post-new.php?post_type=tooltips" target="_blank">'.'“add new tooltip”'. '</a> in wordpress standard tooltip editor.';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
@@ -75,13 +75,13 @@ function tooltips_free_howto_setting()
 
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_2021082001';
-	$tooltips_free_how_to_bar_title = 'WordPress Tooltips Video Tutorial 4: How to Create Your First Tooltip?';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Video Tutorial 4: How to Create Your First Tooltip?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
 	$tooltips_free_how_to_bar_content .= '<h2>How to Create Your First Tooltip</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'You can find full text description with video / images / screenshots of WordPress Tooltips Video Tutorial 4: How to Create Your First Tooltip in here:';
+	$tooltips_free_how_to_bar_content .= 'You can find full text description with video / images / screenshots of Tooltips for Wordpress Video Tutorial 4: How to Create Your First Tooltip in here:';
 	$tooltips_free_how_to_bar_content .= '<br />';
 	$tooltips_free_how_to_bar_content .= '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-4-how-to-create-your-first-tooltips-in-wordpress-tooltips-pro-plugin/" target="_blank">https://tooltips.org/wordpress-tooltips-video-tutorial-4-how-to-create-your-first-tooltips-in-wordpress-tooltips-pro-plugin/</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
@@ -93,11 +93,11 @@ function tooltips_free_howto_setting()
 	tooltips_free_howto_setting_panel ( $tooltips_free_default_how_to_bar_id,$tooltips_free_how_to_bar_title,$tooltips_free_how_to_bar_content );
 	
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_4';
-	$tooltips_free_how_to_bar_title = 'Wordpress Tooltips Plugin Settings';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Plugin Settings';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>Wordpress Tooltips Plugin Settings</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Tooltips for Wordpress Plugin Settings</h2>';
 	$tooltips_free_how_to_bar_content .= '#1 Please log in wordpress admin panel.';
 	$tooltips_free_how_to_bar_content .= '<p>';	
 	$tooltips_free_how_to_bar_content .= '#2 Please click "Tooltips" Menu, then click  '.'<a href="'. get_option('siteurl').'/wp-admin/edit.php?post_type=tooltips&page=tooltipglobalsettings" target="_blank">'.'“Global Settings”'. '</a> sub menu item.';
@@ -116,7 +116,7 @@ function tooltips_free_howto_setting()
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
 	$tooltips_free_how_to_bar_content .= '<h2>How to use [tooltips] shortcode</h2>';
 	
-	$tooltips_free_how_to_bar_content .= '#1 Just like we reported at above, wordpress tooltip will sacn your wordpress posts and add tooltips effect on tooltip terms automatically.';
+	$tooltips_free_how_to_bar_content .= '#1 Just like we reported at above, Tooltips for Wordpress will sacn your wordpress posts and add tooltips effect on tooltip terms automatically.';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '#2 But you can create tooltips manually via shortcode [tooltips] too, by this way, you can add any tooltips which is not in content of post, or not in wordpress database';
 	$tooltips_free_how_to_bar_content .= '</p>';
@@ -124,7 +124,7 @@ function tooltips_free_howto_setting()
 	$tooltips_free_how_to_bar_content .= '#3 It is very easy to use the shortcode, for example: [tooltips keyword=”wordpress” content=”WordPress is great system”]';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';	
-	$tooltips_free_how_to_bar_content .= '#4 You can find demo and more detailed description at '.'<a href="https://tooltips.org/how-to-use-wordpress-tooltip-shortcode-tooltips-to-add-tooltips-manually/" target="_blank">'.'“How to use wordpress tooltip shortcode [tooltips] to add tooltips manually?”'. '</a> sub menu item.';
+	$tooltips_free_how_to_bar_content .= '#4 You can find demo and more detailed description at '.'<a href="https://tooltips.org/how-to-use-wordpress-tooltip-shortcode-tooltips-to-add-tooltips-manually/" target="_blank">'.'“How to use Tooltips for Wordpress shortcode [tooltips] to add tooltips manually?”'. '</a> sub menu item.';
 	$tooltips_free_how_to_bar_content .= '<br />';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
 	$tooltips_free_how_to_bar_content .= '</p>';
@@ -168,13 +168,13 @@ function tooltips_free_howto_setting()
 //!!!
 	
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_7';
-	$tooltips_free_how_to_bar_title = 'Wordpress Tooltip Keyword Matching Mode';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Keyword Matching Mode';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>Wordpress Tooltip Keyword Matching Mode</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Tooltips for Wordpress Keyword Matching Mode</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';	
-	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-7-wordpress-tooltip-keyword-matching-mode/" target="_blank">'. 'Wordpress Tooltips Video Tutorial 7:  Wordpress Tooltip Keyword Matching Mode'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-7-wordpress-tooltip-keyword-matching-mode/" target="_blank">'. 'Tooltips for Wordpress Video Tutorial 7:  Tooltips for Wordpress Keyword Matching Mode'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -184,13 +184,13 @@ function tooltips_free_howto_setting()
 	tooltips_free_howto_setting_panel ( $tooltips_free_default_how_to_bar_id,$tooltips_free_how_to_bar_title,$tooltips_free_how_to_bar_content );
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_8';
-	$tooltips_free_how_to_bar_title = 'Enable/Disable Wordpress Tooltips for Images';
+	$tooltips_free_how_to_bar_title = 'Enable/Disable Tooltips for Wordpress for Images';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>How to enable or disable wordpress tooltips on images</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>How to enable or disable Tooltips for Wordpress on images</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';	
-	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-8-enabledisable-wordpress-tooltips-for-images/" target="_blank">'. 'Wordpress Tooltips Video Tutorial 8:  Enable/Disable Wordpress Tooltips for Images'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-8-enabledisable-wordpress-tooltips-for-images/" target="_blank">'. 'Tooltips for Wordpress Video Tutorial 8:  Enable/Disable Tooltips for Wordpress for Images'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -201,13 +201,13 @@ function tooltips_free_howto_setting()
 	
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_9';
-	$tooltips_free_how_to_bar_title = 'Wordpress Tooltips For Image Setting';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress For Image Setting';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>Wordpress Tooltips For Image Setting</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Tooltips for Wordpress For Image Setting</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-9-wordpress-tooltips-for-image-setting/" target="_blank">'. 'Wordpress Tooltips Video Tutorial 9:  Wordpress Tooltips For Image Setting'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-9-wordpress-tooltips-for-image-setting/" target="_blank">'. 'Tooltips for Wordpress Video Tutorial 9:  Tooltips for Wordpress For Image Setting'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -306,7 +306,7 @@ function tooltips_free_howto_setting()
 	$tooltips_free_how_to_bar_content .= '</p>';	
 	
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= '#4 You can find more glossary settings via our video tutorial with detailed text explanation at: '. ' <a href="https://tooltips.org/wordpress-tooltips-video-tutorial-11-wordpress-glossary-settings/" target="_blank">'. 'WordPress Tooltips Video Tutorial 11: WordPress Glossary Settings'.'</a>';
+	$tooltips_free_how_to_bar_content .= '#4 You can find more glossary settings via our video tutorial with detailed text explanation at: '. ' <a href="https://tooltips.org/wordpress-tooltips-video-tutorial-11-wordpress-glossary-settings/" target="_blank">'. 'Tooltips for Wordpress Video Tutorial 11: WordPress Glossary Settings'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	
 	
@@ -320,12 +320,12 @@ function tooltips_free_howto_setting()
 //!!!end	
 	//!!!start
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_2020053001';
-	$tooltips_free_how_to_bar_title = 'How to Enable / Disable WordPress Tooltips in WordPress Glossary Page?';
+	$tooltips_free_how_to_bar_title = 'How to Enable / Disable Tooltips for Wordpress in WordPress Glossary Page?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/how-to-enable-disable-wordpress-tooltips-in-wordpress-glossary-page/" target="_blank">'. 'How to Enable / Disable WordPress Tooltips in WordPress Glossary Page?'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/how-to-enable-disable-wordpress-tooltips-in-wordpress-glossary-page/" target="_blank">'. 'How to Enable / Disable Tooltips for Wordpress in WordPress Glossary Page?'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -339,12 +339,12 @@ function tooltips_free_howto_setting()
 	
 	//!!!start 8.2.7 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_2023021601';
-	$tooltips_free_how_to_bar_title = 'How to Create a Member Directory Via Wordpress Tooltip?';
+	$tooltips_free_how_to_bar_title = 'How to Create a Member Directory Via Tooltips for Wordpress?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/how-to-create-a-member-directory-via-wordpress-tooltip/" target="_blank">'. 'How to Create a Member Directory Via Wordpress Tooltip?'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check: '. '<a href="https://tooltips.org/how-to-create-a-member-directory-via-wordpress-tooltip/" target="_blank">'. 'How to Create a Member Directory Via Tooltips for Wordpress?'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -357,13 +357,13 @@ function tooltips_free_howto_setting()
 	//!!!end 8.2.7
 	
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_2020072001';
-	$tooltips_free_how_to_bar_title = 'WordPress Tooltips Video Tutorial 10: Import Wordpress Tooltips From csv';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Video Tutorial 10: Import Tooltips for Wordpress From csv';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>Import Wordpress Tooltips From csv</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Import Tooltips for Wordpress From csv</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'You can find full text description with video / images / screenshots of WordPress Tooltips Video Tutorial 10: Import Wordpress Tooltips From csv in here:';
+	$tooltips_free_how_to_bar_content .= 'You can find full text description with video / images / screenshots of Tooltips for Wordpress Video Tutorial 10: Import Tooltips for Wordpress From csv in here:';
 	$tooltips_free_how_to_bar_content .= '<br />';
 	$tooltips_free_how_to_bar_content .= '<a href="https://tooltips.org/wordpress-tooltips-video-tutorial-10-import-wordpress-tooltips-from-csv/" target="_blank">https://tooltips.org/wordpress-tooltips-video-tutorial-10-import-wordpress-tooltips-from-csv/</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
@@ -376,13 +376,13 @@ function tooltips_free_howto_setting()
 	//!!!start
 	
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_20220503';
-	$tooltips_free_how_to_bar_title = 'WordPress Tooltip Plugin Document Page?';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Plugin Document Page?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>WordPress Tooltip Plugin Document Page at https://tooltips.org?</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Tooltips for Wordpress Plugin Document Page at https://tooltips.org?</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'Please check our detailed step by step <b>document</b> with video / screenshot at: '. '<a href="https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/" target="_blank">'. 'WordPress Tooltip Plugin Document Page'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check our detailed step by step <b>document</b> with video / screenshot at: '. '<a href="https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/" target="_blank">'. 'Tooltips for Wordpress Plugin Document Page'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= 'Also you can search tooltip tips in top search bar :)';
@@ -401,16 +401,16 @@ function tooltips_free_howto_setting()
 //!!!start
 
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_16';
-	$tooltips_free_how_to_bar_title = 'WordPress Tooltip Plugin F.A.Q Page?';
+	$tooltips_free_how_to_bar_title = 'Tooltips for Wordpress Plugin F.A.Q Page?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>WordPress Tooltip Plugin F.A.Q Page at https://tooltips.org?</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>Tooltips for Wordpress Plugin F.A.Q Page at https://tooltips.org?</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'Please check it at: '. '<a href="https://tooltips.org/faq/" target="_blank">'. 'WordPress Tooltip Plugin F.A.Q Page'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'Please check it at: '. '<a href="https://tooltips.org/faq/" target="_blank">'. 'Tooltips for Wordpress Plugin F.A.Q Page'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'You can find detailed step by step <b>document</b> with video / screenshot at: '. '<a href="https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/" target="_blank">'. 'WordPress Tooltip Plugin Document Page'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'You can find detailed step by step <b>document</b> with video / screenshot at: '. '<a href="https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/" target="_blank">'. 'Tooltips for Wordpress Plugin Document Page'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
 	$tooltips_free_how_to_bar_content .= '<font color="gray"><i>(Might include description of free and pro features)</i></font>';
@@ -455,16 +455,16 @@ function tooltips_free_howto_setting()
 	
 //!!!start
 	$tooltips_free_default_how_to_bar_id = 'tooltips_knowledge_15';
-	$tooltips_free_how_to_bar_title = 'How to Upgrade to the WordPress Tooltips Pro?';
+	$tooltips_free_how_to_bar_title = 'How to Upgrade to the Tooltips for Wordpress Pro?';
 	
 	$tooltips_free_how_to_bar_content = '';
 	$tooltips_free_how_to_bar_content .= '<div style="padding: 30px 20px 20px 20px;">';
-	$tooltips_free_how_to_bar_content .= '<h2>How to Upgrade to the WordPress Tooltips Pro?</h2>';
+	$tooltips_free_how_to_bar_content .= '<h2>How to Upgrade to the Tooltips for Wordpress Pro?</h2>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'It is always safe to update from tooltip free to tooltip pro, you can just upload wordpress tooltip pro plugin via  "Plugins" > "Add New" in WordPress admin area, then activate it,  tooltips pro  will detect your version and upgrade it safely automatically, then deactivate your tooltips free version automatically';
+	$tooltips_free_how_to_bar_content .= 'It is always safe to update from tooltip free to tooltip pro, you can just upload Tooltips for Wordpress pro plugin via  "Plugins" > "Add New" in WordPress admin area, then activate it,  tooltips pro  will detect your version and upgrade it safely automatically, then deactivate your tooltips free version automatically';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '<p>';
-	$tooltips_free_how_to_bar_content .= 'If you want to ensure you will in zero risk, please read our document at: '. '<a href="https://tooltips.org/how-to-upgrade-to-the-newest-wordpress-tooltips-pro/" target="_blank">'. 'How to Upgrade to the Newest WordPress Tooltips Pro'.'</a>';
+	$tooltips_free_how_to_bar_content .= 'If you want to ensure you will in zero risk, please read our document at: '. '<a href="https://tooltips.org/how-to-upgrade-to-the-newest-wordpress-tooltips-pro/" target="_blank">'. 'How to Upgrade to the Newest Tooltips for Wordpress Pro'.'</a>';
 	$tooltips_free_how_to_bar_content .= '</p>';
 	$tooltips_free_how_to_bar_content .= '</div>';
 //!!!end

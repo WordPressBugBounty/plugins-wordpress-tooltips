@@ -1,31 +1,31 @@
 <?php
-if (!defined('ABSPATH'))
-{
-	exit;
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
 
-function tooltipsImportFree()
-{
-	?>
-<div class="wrap tooltipsaddonclass">
-	<h2>
-	<?php
-		echo __("Import Tooltips", "wordpress-tooltips");
-	?>
-	</h2>
-	<table class="wp-list-table widefat fixed" style="margin-top:20px;">
-		<tr><td>
-			<form enctype="multipart/form-data" action="" method="POST">
-    			<h3><?php echo __("Import tooltips from csv", "wordpress-tooltips"); ?></h3>
-    			<label for="Your CSV File"> <?php echo __("Your CSV File:", "wordpress-tooltips"); ?> </label>
-    			<?php 
-    			wp_nonce_field ( 'tooltipscsvuploadfilenonce' );
-    			?>
-    			<input name="tooltips_csv_upload_file" type="file" />
-			    <div style="margin-top:30px !important;margin-bottom:30px  !important;">
-   				<input type="submit" value=" <?php echo __("Import", "wordpress-tooltips"); ?> " name="import" />
-    			</div>
-			</form>
+//!!! 10.8.7
+
+function tooltipsImportFree() {
+    ?>
+    <div class="wrap tooltipsaddonclass">
+        <h2>
+        <?php
+            echo __("Import Tooltips", "wordpress-tooltips");
+        ?>
+        </h2>
+        <table class="wp-list-table widefat fixed" style="margin-top:20px;">
+        <tr><td>
+            <form enctype="multipart/form-data" action="" method="POST">
+                <h3><?php echo __("Import tooltips from csv:", "wordpress-tooltips"); ?></h3>
+                <label for="Your CSV File"> <?php echo __("Your CSV File:", "wordpress-tooltips"); ?> </label>
+                <?php 
+                    wp_nonce_field('tooltipscsvuploadfilenonce');
+                ?>
+                <input name="tooltips_csv_upload_file" type="file" />
+                <div style="margin-top:30px !important;margin-bottom:30px  !important;">
+                    <input type="submit" value=" <?php echo __("Import", "wordpress-tooltips"); ?> " name="import" />
+                </div>
+            </form>
 			<div>
 			<hr />
 				<h4>Please note:</h4>
@@ -52,129 +52,98 @@ function tooltipsImportFree()
 				</div>				
 				<div style="margin-bottom:10px;">
 				<span style="color:#888;">#7</span>  
-				You will find video tutorial "import wordpress tooltips from csv" and more documents at <a href='https://tooltips.org/?s=import'>How to Import WordPress Tooltips</a>
+				You will find video tutorial "import tooltips from csv" and more documents at <a href='https://tooltips.org/?s=import'>How to Import Tooltips</a>
 				</div>
 				<?php //9.3.9 ?>
 				<div style="margin-bottom:10px;">
 				<span style="color:#888;">
-				#8 If you cannot import tooltips , please check our detailed document at <a href='https://tooltips.org/how-to-solve-the-problem-of-spacial-characters-on-import-when-importing-wordpress-tooltip-term-wordpress-tooltips-pro-plus-27-3-8-tooltips-pro-19-4-6-tooltips-free-9-3-9-released/'>How to solve the problem of spacial characters on import when importing wordpress tooltip term</a>
+				#8 If you cannot import tooltips , please check our detailed document at <a href='https://tooltips.org/how-to-solve-the-problem-of-spacial-characters-on-import-when-importing-wordpress-tooltip-term-wordpress-tooltips-pro-plus-27-3-8-tooltips-pro-19-4-6-tooltips-free-9-3-9-released/'>How to solve the problem of spacial characters on import when importing Tooltips for Wordpress term</a>
 				</span>  
 				</div>				
-			</div>
-		</td></tr>
-	</table>
-<?php
-	global $wpdb;
-	if (isset($_POST['import']))
-	{
-		check_admin_referer ( 'tooltipscsvuploadfilenonce' );
-		
-		if (!current_user_can('upload_files'))
-			wp_die(__('Sorry, you are not allowed to upload files.'));
-		
-		$file = $_FILES ['tooltips_csv_upload_file'];
-		$file_type = substr ( strstr ( $file ['name'], '.' ), 1 );
-		if ($file_type != 'csv') {
-			echo __ ( "<h4 style='color:firebrick'>Sorry, We only support csv file, please upload csv file again.</h4>", "wordpress-tooltips" );
-			exit ();
-		}
-		$handle = fopen ( $file ['tmp_name'], "r" );
-		delete_option ( 'existed_tooltips_post' );
-		
-		$existed_tooltips_post = get_option ( 'existed_tooltips_post' );
-		if (empty ( $existed_tooltips_post )) {
-			$existed_tooltips_post = array ();
-		}
-		
-		$row = 0;
-		while ( $data = fgetcsv ( $handle, 1000, ',' ) ) {
-			$row ++;
-			if ($row == 1)
-				continue;
-			$num = count ( $data );
-			$term_id = 0;
-			$new_post = '';
-			$post_title = '';
-			$post_content = '';
+			</div>			
+        </td></tr>
+        </table>
+    <?php
+    global $wpdb;
 
-			//before 9.5.9
-			/*
-			for($i = 0; $i < $num; $i ++) {
-				if ($i == 0) {
-					$post_title = $data [0];
-				}
-				
-				if ($i == 1) {
-					$post_content = $data [1];
-				}
-			}
-			*/
+    if (isset($_POST['import'])) {
+        check_admin_referer('tooltipscsvuploadfilenonce'); // Validate nonce for CSRF protection
+        
+        // File Upload Security Check
+        if (!current_user_can('upload_files')) {
+            wp_die(__('Sorry, you are not allowed to upload files.'));
+        }
 
-			//9.8.3
-			$allowed_html = wp_kses_allowed_html('post');
-			$allowed_html['source'] =  array(
-				'src' => true,
-				'type' => true,
-			);			
-			
-			// end 9.8.3
-			//9.5.9
-			for($i = 0; $i < $num; $i ++) {
-				if ($i == 0) {
-					$post_title = sanitize_text_field($data [0]);
-				}
-				
-				if ($i == 1) {
-					// !!! before 9.8.3 $post_content = sanitize_text_field($data [1]);
-					// 9.8.3
-					$post_content = wp_kses($data [1],$allowed_html);
+        // File Validation
+        if (isset($_FILES['tooltips_csv_upload_file'])) {
+            $file = $_FILES['tooltips_csv_upload_file'];
+            $file_type = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-				}
-			}
-			
-			$new_post = array (
-				'post_title' => @$post_title,
-				'post_content' => @$post_content,
-				'post_status' => 'publish',
-				'post_type' => 'tooltips',
-				'post_author' => '1' 
-			);
+            // Validate CSV file extension and MIME type
+            if ($file_type !== 'csv') {
+                echo __("<h4 style='color:firebrick'>Sorry, We only support CSV files, please upload a valid CSV file.</h4>", "wordpress-tooltips");
+                exit;
+            }
 
+            // Further MIME type check
+            if ($file['type'] !== 'text/csv' && $file['type'] !== 'application/vnd.ms-excel') {
+                echo __("<h4 style='color:firebrick'>Invalid file type. Please upload a CSV file.</h4>", "wordpress-tooltips");
+                exit;
+            }
+        }
 
-			
+        // Open the uploaded CSV file
+        $handle = fopen($file['tmp_name'], "r");
+        delete_option('existed_tooltips_post');
+        
+        $existed_tooltips_post = get_option('existed_tooltips_post', []);
+        $row = 0;
 
-			$post_table = $wpdb->prefix . 'posts';
-			// before 9.5.9			
-			//$sql = 'select `ID` from `' . $post_table . "` where `post_title` = '" . $post_title . "' and `post_status` = 'publish' and `post_type` = 'tooltips' limit 1";
-			//9.5.9
-			$sql = $wpdb->prepare( "select ID from $wpdb->posts where post_title = %s  and post_status = 'publish' and post_type = 'tooltips' limit 1",$post_title);
-			$result = $wpdb->get_var ( $sql );
-			$is_dup = '';
-			if ($result) {
-				$is_dup = true;
-			}
-			
-			if ($is_dup == true) {
-			} else {
-				
-				$id = wp_insert_post ( $new_post );
-				if (! (empty ( $id ))) {
-					
-					if (in_array ( $id, $existed_tooltips_post )) {
-					} else {
-						$existed_tooltips_post [] = $id;
-					}
-				}
-			}
-			update_option ( 'existed_tooltips_post', $existed_tooltips_post );
-		}
-		fclose ( $handle );
-		$checkImportedTooltipsURL = get_option ( 'siteurl' ) . '/wp-admin/edit.php?post_type=tooltips';
-		
-		echo '<br />';
-		echo __ ( "<h4 style='color:firebrick'>Tooltips imported, Please click <a href='$checkImportedTooltipsURL'>All Tooltips</a> to check the result, thanks</h4>", "wordpress-tooltips" );
-	}
+        while ($data = fgetcsv($handle, 1000, ',')) {
+            $row++;
+            if ($row == 1) continue; // Skip the header row
+
+            // Ensure that there are enough columns
+            if (count($data) < 2) {
+                continue; // Skip invalid rows
+            }
+
+            $post_title = sanitize_text_field($data[0]); // Sanitize title
+            $post_content = wp_kses(sanitize_text_field($data[1]), wp_kses_allowed_html('post')); // Sanitize and allow post content
+
+            // Prepare new post data
+            $new_post = [
+                'post_title'   => $post_title,
+                'post_content' => $post_content,
+                'post_status'  => 'publish',
+                'post_type'    => 'tooltips',
+                'post_author'  => 1
+            ];
+
+            // Check for duplicate posts
+            $sql = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_status = 'publish' AND post_type = 'tooltips' LIMIT 1", $post_title);
+            $result = $wpdb->get_var($sql);
+            
+            if ($result) {
+                continue; // Skip duplicate entries
+            }
+
+            // Insert new post
+            $id = wp_insert_post($new_post);
+            if ($id && !in_array($id, $existed_tooltips_post)) {
+                $existed_tooltips_post[] = $id;
+            }
+        }
+
+        fclose($handle);
+
+        // Update the list of existing tooltips posts
+        update_option('existed_tooltips_post', $existed_tooltips_post);
+
+        // Success message with link to all tooltips
+        $checkImportedTooltipsURL = get_option('siteurl') . '/wp-admin/edit.php?post_type=tooltips';
+        echo '<br />';
+        echo __("<h4 style='color:firebrick'>Tooltips imported, Please click <a href='$checkImportedTooltipsURL'>All Tooltips</a> to check the result, thanks</h4>", "wordpress-tooltips");
+    }
 }
-
-
-
+?>

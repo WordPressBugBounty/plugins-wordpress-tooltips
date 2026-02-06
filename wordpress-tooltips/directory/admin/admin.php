@@ -212,7 +212,7 @@ function memberdirectoryrolesetting_free()
     $content .= "please use shortcode: [member_directory include='1,90'] -- only display specific users in member directory";
     $content .= "</div>";            
 	$content .= "<div style='margin:12px 12px;'>";
-	$content .= "how to use: <a href='https://tooltips.org/how-to-create-a-member-directory-via-wordpress-tooltip/' target='_blank'>How to Create a Member Directory Via WordPress Tooltip?</a>";
+	$content .= "how to use: <a href='https://tooltips.org/how-to-create-a-member-directory-via-wordpress-tooltip/' target='_blank'>How to Create a Member Directory Via Tooltips for Wordpress?</a>";
 	$content .= "</div>";
 	tomas_setting_panel_member_directory_free($title, $content);
 }

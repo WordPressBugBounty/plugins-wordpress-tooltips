@@ -2,14 +2,14 @@
 /*
 Plugin Name: Tooltips
 Plugin URI:  https://tooltips.org/features-of-wordpress-tooltips-plugin/
-Description: Wordpress Tooltips,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of WordPress Tooltips Pro</a>.
-Version: 10.6.9
+Description: Tooltips for Wordpress,You can add text,image,link,video,radio in tooltips, add tooltips in gallery. More amazing features? Do you want to customize a beautiful style for your tooltips? One Minute, Check <a href='https://tooltips.org/features-of-wordpress-tooltips-plugin/' target='_blank'> Features of Tooltips Pro</a>.
+Version: 10.9.3
 Author: Tomas | <a href='https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltip-plugin-document/' target='_blank'>Docs</a> | <a href='https://tooltips.org/faq/' target='_blank'>FAQ</a> | <a href='https://tooltips.org/contact-us' target='_blank'>Premium Support</a> 
 Author URI: https://tooltips.org/wordpress-tooltip-plugin/wordpress-tooltips-demo/
 Text Domain: wordpress-tooltips
 License: GPLv3 or later
 */
-/*  Copyright 2011 - 2025 Tomas Zhu
+/*  Copyright 2011 - 2026 Tomas Zhu
  This program comes with ABSOLUTELY NO WARRANTY;
  https://www.gnu.org/licenses/gpl-3.0.html
  https://www.gnu.org/licenses/quick-guide-gplv3.html
@@ -1927,7 +1927,7 @@ function upgrade_check()
 		update_option("seletEnableJqueryMigrate", 'YES');
 	   //!!! end 7.9.7
 	}
-	update_option('ztooltipversion','10.6.9');
+	update_option('ztooltipversion','10.9.3');
 }
 add_action( 'init', 'upgrade_check');
 
@@ -2198,8 +2198,8 @@ function tomas_one_tooltip_shortcode( $atts, $inputcontent = null )
 
 add_shortcode('tooltips', 'tomas_one_tooltip_shortcode');
 
-
-add_action('widgets_init', 'TooltipsWidgetInit');
+//!!! before 10.8.3
+//add_action('widgets_init', 'TooltipsWidgetInit');
 
 
 /**** localization ****/
@@ -2351,6 +2351,23 @@ function tooltips_table_shortcode($atts)
 	$post_type = 'tooltips';
 	$sql = $wpdb->prepare( "SELECT ID, post_title, post_content, post_excerpt FROM $wpdb->posts WHERE post_type=%s AND post_status='publish' order by post_title ASC",$post_type);
 	$results = $wpdb->get_results( $sql );
+
+//!!! 10.7.9
+	$customglossaryitemorder = get_option('customglossaryitemorder');
+	$customglossaryitemorder_array = array_filter(array_map('intval', explode(',', $customglossaryitemorder)));
+	
+	if (!empty($customglossaryitemorder_array)) 
+	{
+		$id_map = array_combine(wp_list_pluck($results, 'ID'), $results);
+
+		$ordered = array();
+		foreach ($customglossaryitemorder_array as $id) 
+		{
+			if (isset($id_map[$id])) $ordered[] = $id_map[$id];
+		}
+
+		$results = array_merge($ordered, array_diff_key($id_map, array_flip($customglossaryitemorder_array)));
+	}
 
 	if ((!(empty($results))) && (is_array($results)) && (count($results) >0))
 	{
@@ -2702,7 +2719,18 @@ add_action('wp_footer','footerdisabletooltipinhtmltag');
 
 function tooltips_free_admin_css()
 {
-	wp_enqueue_style('tooltips_free_admin_css', plugin_dir_url( __FILE__ ) .'asset/admin/css/admin.css');
+	//!!! before 10.7.3 wp_enqueue_style('tooltips_free_admin_css', plugin_dir_url( __FILE__ ) .'asset/admin/css/admin.css');
+
+//!!! 10.7.3
+    if (isset($_GET['post_type']))
+    {
+        $tooltips_admin_post_type_check = sanitize_text_field($_GET['post_type']);
+        if ($tooltips_admin_post_type_check === 'tooltips')
+        {
+            wp_enqueue_style('tooltips_free_admin_css', plugin_dir_url( __FILE__ ) .'asset/admin/css/admin.css');
+        }
+    }    
+//!!! end  10.7.3
 
 	//7.9.3 $current_edit_page = strtolower($_SERVER['REQUEST_URI']);
 	$current_edit_page = strtolower(sanitize_url($_SERVER['REQUEST_URI']));
@@ -3225,3 +3253,57 @@ jQuery("document").ready(function()
 }
 add_action('wp_footer', 'removenavigationbarpro');
 //end 10.4.3
+
+// 10.9.3 and  36.3.8
+function tomas_render_tooltip($keyword, $content)
+{
+    if (tooltips_pro_disable_tooltip_in_mobile_free()) {
+		return $keyword;
+    }
+
+    // Normalize keyword
+    $keyword = trim((string) $keyword);
+    if ($keyword === '') {
+        return '';
+    }
+
+    // Generate unique ID
+    $keywordmd = md5(uniqid('', true));
+
+    // Escape keyword for HTML
+    $safe_keyword = esc_html($keyword);
+
+	$output  = "<span class='tooltipsall tooltip_post_id_custom_".esc_attr($keywordmd)." classtoolTipsCustomShortCode' style='border-bottom:2px dotted #888;'>";
+    $output .= $safe_keyword;
+    $output .= "</span>";	
+
+    // Tooltip content (preserve all HTML)
+    $m_content = (string) $content;
+
+    // Normalize line breaks if option is set
+    $enableRemoveWPautop = get_option('enableRemoveWPautop');
+    if ($enableRemoveWPautop !== 'NO') {
+        $m_content = str_replace(
+            array("\r\n", "\r", "\n"),
+            array('<br/>', '', '<br/>'),
+            $m_content
+        );
+    }
+
+    if ($m_content !== '') {
+        // Use wp_json_encode() to safely encode HTML for JS
+        $output .= '<script type="text/javascript">
+            jQuery(document).ready(function(){
+                toolTips(".tooltip_post_id_custom_' . esc_attr($keywordmd) . '",' . wp_json_encode($m_content) . ',"0");
+            });
+        </script>';
+    }
+  return $output;
+}
+
+
+
+add_action('elementor/widgets/register', function ($widgets_manager) {
+    require_once __DIR__ . '/includes/elementor/widgets/class-tooltip-widget.php';
+    $widgets_manager->register(new \Tomas_Elementor_Tooltip_Widget());
+});

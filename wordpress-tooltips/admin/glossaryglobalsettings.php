@@ -106,6 +106,16 @@ if (isset($_POST['toolstipsCustomizedsubmit']))
 	$bulkremovetermfromglossarylist = get_option("bulkremovetermfromglossarylist");
 	//!!!end 7.5.1
 
+
+	//!!!start 10.7.9
+	if (isset($_POST['customglossaryitemorder']))
+	{
+		$customglossaryitemorder = sanitize_text_field($_POST['customglossaryitemorder']);
+		update_option("customglossaryitemorder",$customglossaryitemorder);
+	}
+	$customglossaryitemorder = get_option("customglossaryitemorder");
+	//!!!end	
+
 	//!!!7.6.5
 	if (isset($_POST['glossaryNavItemFontSize']))
 	{
@@ -216,6 +226,8 @@ if (isset($_POST['toolstipsCustomizedsubmit']))
 	
 	if (empty($enableGlossarySearchable)) $enableGlossarySearchable = 'yes';
 	$bulkremovetermfromglossarylist = get_option('bulkremovetermfromglossarylist'); // !!! 7.5.1
+	// 10.7.9
+	$customglossaryitemorder = get_option('customglossaryitemorder');
 
 	$glossaryNavItemFontSize = get_option("glossaryNavItemFontSize"); //7.7.7
 	$glossaryIndexPageTermFontSize = get_option("glossaryIndexPageTermFontSize");  //7.7.7
@@ -864,7 +876,38 @@ $questiontip = '<div class="glossaryexcerptorcontent"><p>Show excerpt of the glo
 										</tr>
 <?php
 // end 10.5.9
+//!!! 10.7.9
 ?>
+										<tr>
+										<td style='width:25%'>
+										<?php
+											$customglossaryitemorder = get_option('customglossaryitemorder');
+											echo __( "Custom Glossary Item Order: ", 'wordpress-tooltips' ).'<span class="spancustomglossaryitemorder">?</span>';
+										?>
+										<?php
+											$admin_tip = __('You can customize the glossary item order in here, just enter the item IDs, for example: 3,22,58,126,583', "wordpress-tooltips");
+										?>
+										<script type="text/javascript"> 
+										jQuery(document).ready(function () {
+										  jQuery("span.spancustomglossaryitemorder").hover(function () {
+										    jQuery(this).append('<div class="divcustomglossaryitemorder"><p><?php echo $admin_tip; ?></p></div>');
+										  }, function () {
+										    jQuery("div.divcustomglossaryitemorder").remove();
+										  });
+										});
+										</script>
+										</td>
+										
+										<td style='width:25%'>
+										<input type="text" id="customglossaryitemorder" name="customglossaryitemorder" value="<?php echo $customglossaryitemorder;  ?>" placeholder="<?php echo __('for example: 3,22,58,126,583', "wordpress-tooltips");; ?>">
+										</td>										
+
+										<td style='width:25%'>
+										</td>
+										<td style='width:25%'>
+										</td>
+										</tr>
+
 										</table>
 										<br />
 										<input type="submit" class="button-primary" id="toolstipsCustomizedsubmit" name="toolstipsCustomizedsubmit" value=" <?php echo __( 'Save Changes', 'wordpress-tooltips' ) ?> ">

@@ -1573,7 +1573,7 @@ $questiontip = '<div class="divtooltipforcategorytitle"><p>Enable tooltips effec
 										</table>
 										<?php 
 										//9.0.5
-										$tt_var_questionfontsize = '<br /><i><a href="https://tooltips.org/how-to-adjust-the-font-size-of-the-text-inside-wordpress-tooltip-pop-up-windows/" target="_blank">' .__( 'how to adjust the font size of the text inside wordpress tooltip pop up windows', 'wordpress-tooltips' ).'</a></i>';
+										$tt_var_questionfontsize = '<br /><i><a href="https://tooltips.org/how-to-adjust-the-font-size-of-the-text-inside-wordpress-tooltip-pop-up-windows/" target="_blank">' .__( 'how to adjust the font size of the text inside Tooltips for Wordpress pop up windows', 'wordpress-tooltips' ).'</a></i>';
 										echo $tt_var_questionfontsize;
 
 										?>
@@ -2180,7 +2180,7 @@ in glossary page, by category name, or you can get tooltip by id [tooltip_by_id 
 										* Glossary Language addon: You can use language alphabet generator to generate your language alphabet, or just custom your own alphabet based on your application scenarios, also you can generate numbers based on your language or application scenarios, or you can replace words in glossary bar for example replace the "ALL" to your own language... and so on
 									</li>
 									<li>
-										* Via "How To Use Wordpress Tooltips" Panel, you can watch video tutorial and text document to learn how to use wordpress tooltip plugin									
+										* Via "How To Use Tooltips" Panel, you can watch video tutorial and text document to learn how to use Tooltips for Wordpress plugin									
 									</li>	
 									<li>
 										* Optimized tooltip performance and whole site performance 									
@@ -2201,7 +2201,7 @@ in glossary page, by category name, or you can get tooltip by id [tooltip_by_id 
 									<h3 class='hndle' style='padding: 20px 0px; !important'>
 									<span>
 									<?php 
-										echo  __( 'Wordpress tooltips Tips Feed:', 'wordpress-tooltips');
+										echo  __( 'Tooltips Tips Feed:', 'wordpress-tooltips');
 									?>
 									</span>
 									</h3>
@@ -2505,6 +2505,116 @@ $m_tooltipsArray = get_option('tooltipsarray');
 		}				
 }
 */	
+
+//!!! 10.8.3
+
+class Tooltips_Widget extends WP_Widget {
+
+    public function __construct() {
+        parent::__construct(
+            'tooltips_widget',
+            __('Tooltips', 'wordpress-tooltips'),
+            [
+                'description' => __('Display tooltip list', 'wordpress-tooltips'),
+            ]
+        );
+    }
+
+    /**
+     * Frontend output
+     */
+    public function widget( $args, $instance ) {
+
+        echo $args['before_widget'];
+
+        if ( ! empty( $instance['title'] ) ) {
+            echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
+        }
+
+        // Build content safely
+        $content = $this->get_tooltips_content();
+
+        /**
+         * IMPORTANT:
+         * - DO NOT call tooltipsInContent() here
+         * - Let WordPress + Polylang handle rendering
+         */
+        echo $content;
+
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Widget settings form
+     */
+    public function form( $instance ) {
+
+        $title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+        ?>
+        <p>
+            <label for="<?= esc_attr( $this->get_field_id( 'title' ) ); ?>">
+                <?= esc_html__( 'Title:', 'wordpress-tooltips' ); ?>
+            </label>
+            <input class="widefat"
+                id="<?= esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                name="<?= esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                type="text"
+                value="<?= $title; ?>">
+        </p>
+        <?php
+    }
+
+    /**
+     * Save settings
+     */
+    public function update( $new_instance, $old_instance ) {
+
+        return [
+            'title' => sanitize_text_field( $new_instance['title'] ),
+        ];
+    }
+
+    /**
+     * Tooltip list output (NO filtering here!)
+     */
+    private function get_tooltips_content() {
+
+        $query = new WP_Query([
+            'post_type'   => 'tooltips',
+            'post_status' => 'publish',
+            'nopaging'    => true,
+        ]);
+
+        if ( ! $query->have_posts() ) {
+            return '';
+        }
+
+        $html  = '<div class="tooltips_widget">';
+
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            $html .= '<div class="tooltips_list">' . esc_html( get_the_title() ) . '</div>';
+        }
+
+		$html = tooltipsInContent($html);
+		$html = showTooltipsInShorcode($html);
+
+
+        wp_reset_postdata();
+
+        $html .= '</div>';
+
+        return $html;
+    }
+}
+
+add_action( 'widgets_init', function () {
+    register_widget( 'Tooltips_Widget' );
+});
+
+//!!! end 10.8.3
+
+/* !!! before 10.8.3
 function TooltipsWidgetInit()
 {	
 	wp_register_sidebar_widget('Tooltips', 'Tooltips', 'tooltipsSidebar');
@@ -2591,6 +2701,7 @@ function tooltipsSidebar($argssidebarsidebar = null)
     echo "</div>";
 	echo $return_content;
 }
+*/
 
 function tooltipsMessage($p_message)
 {
